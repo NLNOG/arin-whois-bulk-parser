@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <net>
-    <ref>https://whois.arin.net/rest/v1/net/NET-64-188-224-0-1</ref>
-    <endAddress>64.188.227.255</endAddress>
-    <handle>NET-64-188-224-0-1</handle>
-    <name>MTHOID-DYN-CM</name>
+    <ref>https://whois.arin.net/rest/v1/net/NET-10-188-227-0-1</ref>
+    <endAddress>10.188.227.255</endAddress>
+    <handle>NET-10-188-224-0-1</handle>
+    <name>NAME1</name>
     <netBlocks>
         <netBlock>
             <cidrLenth>22</cidrLenth>
-            <endAddress>064.188.227.255</endAddress>
+            <endAddress>010.188.227.255</endAddress>
             <type>S</type>
-            <startAddress>064.188.224.000</startAddress>
+            <startAddress>010.188.224.000</startAddress>
         </netBlock>
     </netBlocks>
     <originASes>
-        <originAS>1246</originAS>
-        <originAS>21831</originAS>
+        <originAS>00001</originAS>
+        <originAS>00002</originAS>
     </originASes>
     <pocLinks/>
-    <orgHandle>C03202949</orgHandle>
-    <parentNetHandle>NET-64-188-128-0-1</parentNetHandle>
-    <registrationDate>2012-11-08T12:15:45-05:00</registrationDate>
-    <startAddress>64.188.224.0</startAddress>
-    <updateDate>2012-11-08T12:15:45-05:00</updateDate>
+    <orgHandle>ORG1</orgHandle>
+    <parentNetHandle>NET-10-188-128-0-1</parentNetHandle>
+    <registrationDate>2017-01-01T01:01:01-05:00</registrationDate>
+    <startAddress>10.188.224.0</startAddress>
+    <updateDate>2017-01-01T01:01:01-05:00</updateDate>
     <version>4</version>
 </net>
 <net>
-    <ref>https://whois.arin.net/rest/v1/net/NET-63-252-0-0-1</ref>
-    <endAddress>63.254.151.255</endAddress>
-    <handle>NET-63-252-0-0-1</handle>
-    <name>PAETECCOMM</name>
+    <ref>https://whois.arin.net/rest/v1/net/NET-10-252-0-0-1</ref>
+    <endAddress>10.254.151.255</endAddress>
+    <handle>NET-10-252-0-0-1</handle>
+    <name>NAME2</name>
     <netBlocks>
         <netBlock>
             <cidrLenth>15</cidrLenth>
-            <endAddress>063.253.255.255</endAddress>
+            <endAddress>010.253.255.255</endAddress>
             <type>DA</type>
-            <startAddress>063.252.000.000</startAddress>
+            <startAddress>010.252.000.000</startAddress>
         </netBlock>
         <netBlock>
             <cidrLenth>20</cidrLenth>
-            <endAddress>063.254.143.255</endAddress>
+            <endAddress>010.254.143.255</endAddress>
             <type>DA</type>
-            <startAddress>063.254.128.000</startAddress>
+            <startAddress>010.254.128.000</startAddress>
         </netBlock>
         <netBlock>
             <cidrLenth>17</cidrLenth>
-            <endAddress>063.254.127.255</endAddress>
+            <endAddress>010.254.127.255</endAddress>
             <type>DA</type>
-            <startAddress>063.254.000.000</startAddress>
+            <startAddress>010.254.000.000</startAddress>
         </netBlock>
         <netBlock>
             <cidrLenth>21</cidrLenth>
-            <endAddress>063.254.151.255</endAddress>
+            <endAddress>010.254.151.255</endAddress>
             <type>DA</type>
-            <startAddress>063.254.144.000</startAddress>
+            <startAddress>010.254.144.000</startAddress>
         </netBlock>
     </netBlocks>
     <originASes>
-        <originAS>1785</originAS>
-        <originAS>4969</originAS>
-        <originAS>15270</originAS>
-        <originAS>4231</originAS>
+        <originAS>0003</originAS>
+        <originAS>0004</originAS>
+        <originAS>10005</originAS>
+        <originAS>10006</originAS>
     </originASes>
     <pocLinks/>
-    <orgHandle>PAET</orgHandle>
-    <parentNetHandle>NET-63-0-0-0-0</parentNetHandle>
+    <orgHandle>ORG2</orgHandle>
+    <parentNetHandle>NET-10-0-0-0-0</parentNetHandle>
     <comment>
-        <line number="0">To report abuse issues please email abuse@mcleodusa.net</line>
+        <line number="0">To report abuse issues please email someone</line>
     </comment>
-    <registrationDate>1999-11-18T00:00:00-05:00</registrationDate>
-    <startAddress>63.252.0.0</startAddress>
-    <updateDate>2017-11-13T15:23:06.015-05:00</updateDate>
+    <registrationDate>2017-01-01T01:01:01-05:00</registrationDate>
+    <startAddress>10.252.0.0</startAddress>
+    <updateDate>2017-01-01T01:01:01-05:00</updateDate>
     <version>4</version>
 </net>
