@@ -34,7 +34,7 @@ for line in fileinput.input(sys.argv[2:]):
     record += line
     if line == '</net>\n':
         mCidrLength = pCidrLength.findall(record)
-        mref = pref.findall(record)
+        mref = pref.findall(record)[0].replace("/v1/", "/")
         mStartAddress = pStartAddress.findall(record)
         mOriginAS = pOriginAS.findall(record)
         if not mOriginAS is None:
@@ -52,7 +52,7 @@ for line in fileinput.input(sys.argv[2:]):
                         else:
                             print "route6: %s" % str(pfx)
                         print "descr: %sAS%s" % (str(pfx), vAS)
-                        print "remarks: %s" % ref
+                        print "remarks: %s" % mref
                         print "origin: AS%s" % vAS
                         print "source: ARIN-WHOIS"
                         print ""
@@ -60,7 +60,7 @@ for line in fileinput.input(sys.argv[2:]):
                         d = {}
                         d['prefix'] = str(pfx)
                         d['originas'] = 'AS%s' % vAS
-                        d['ref'] = '%s' % ref
+                        d['ref'] = '%s' % mref
                         if pfx.version == 4:
                             v4records.append(d)
                         else:
