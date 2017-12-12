@@ -14,6 +14,10 @@ import datetime
 import json
 import sys
 
+def gt(dt_str):
+    dt = datetime.datetime.strptime(dt_str[:-6], "%Y-%m-%dT%H:%M:%S")
+    return dt.strftime("%Y%m%d")
+
 outputFormat = sys.argv[1]
 if not (outputFormat == 'json' or 'irr'):
     print 'unknown output format'
@@ -21,6 +25,7 @@ if not (outputFormat == 'json' or 'irr'):
 
 pCidrLength = re.compile('<cidrLenth>(.+?)<\/cidrLenth>')
 pref = re.compile('<ref>(.+?)<\/ref>')
+pupdateDate = re.compile('<updateDate>(.+?)<\/updateDate>')
 pStartAddress = re.compile('<startAddress>(.+?)<\/startAddress>\s*</netBlock>')
 pOriginAS = re.compile('<originAS>(.+?)<\/originAS>')
 
@@ -34,6 +39,7 @@ for line in fileinput.input(sys.argv[2:]):
     record += line
     if line == '</net>\n':
         mCidrLength = pCidrLength.findall(record)
+        mupdateDate = pupdateDate.findall(record)[0]
         mref = pref.findall(record)[0].replace("/v1/", "/")
         mStartAddress = pStartAddress.findall(record)
         mOriginAS = pOriginAS.findall(record)
@@ -51,9 +57,10 @@ for line in fileinput.input(sys.argv[2:]):
                             print "route: %s" % str(pfx)
                         else:
                             print "route6: %s" % str(pfx)
-                        print "descr: %sAS%s" % (str(pfx), vAS)
+                        print "descr: %s" % mref.split('/')[-1]
                         print "remarks: %s" % mref
                         print "origin: AS%s" % vAS
+                        print "changed: nobody@nlnog.net %s" % gt(mupdateDate)
                         print "source: ARIN-WHOIS"
                         print ""
                     elif outputFormat == 'json':
@@ -61,6 +68,8 @@ for line in fileinput.input(sys.argv[2:]):
                         d['prefix'] = str(pfx)
                         d['originas'] = 'AS%s' % vAS
                         d['ref'] = '%s' % mref
+                        d['name'] = '%s' % mref.split('/')[-1]
+                        d['changed'] = mupdateDate
                         if pfx.version == 4:
                             v4records.append(d)
                         else:
@@ -73,7 +82,7 @@ if outputFormat == 'json':
     arin['whois_records'] = {}
     arin['whois_records']['v4'] = v4records
     arin['whois_records']['v6'] = v6records
-    arin['json_schema'] = '0.0.2'
+    arin['json_schema'] = '0.0.3'
     arin['source'] = 'ARIN-WHOIS'
     arin['help'] = 'http://teamarin.net/2016/07/07/origin-as-an-easier-way-to-validate-letters-of-authority/'
     print json.dumps(arin, sort_keys=True, indent=4)
