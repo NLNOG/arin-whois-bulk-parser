@@ -14,8 +14,10 @@ import datetime
 import json
 import sys
 
+
 def gt(dt_str):
-    dt = datetime.datetime.strptime(dt_str[:-6], "%Y-%m-%dT%H:%M:%S")
+    dt, _, us = dt_str[:-6].partition(".")
+    dt = datetime.datetime.strptime(dt, "%Y-%m-%dT%H:%M:%S")
     return dt.strftime("%Y%m%d")
 
 outputFormat = sys.argv[1]
