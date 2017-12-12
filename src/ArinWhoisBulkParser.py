@@ -20,7 +20,7 @@ if not (outputFormat == 'json' or 'irr'):
     exit(2)
 
 pCidrLength = re.compile('<cidrLenth>(.+?)<\/cidrLenth>')
-pref = re.compile('<cidrLenth>(.+?)<\/cidrLenth>')
+pref = re.compile('<ref>(.+?)<\/ref>')
 pStartAddress = re.compile('<startAddress>(.+?)<\/startAddress>\s*</netBlock>')
 pOriginAS = re.compile('<originAS>(.+?)<\/originAS>')
 
