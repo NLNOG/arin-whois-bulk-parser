@@ -3,8 +3,8 @@ Created on Nov 9, 2017
 
 Usage: call script <format: 'json' or 'irr'> <xml source>
 
-@author: arjan
-@ook in geharkt: job
+@author: Arjan van der Veen <avdveen@palanthir.nl>
+@author: Job Snijders <job@instituut.net>
 '''
 
 import fileinput
@@ -14,6 +14,7 @@ import datetime
 import json
 import sys
 
+json_version = '0.1.0'
 
 def gt(dt_str):
     dt, _, us = dt_str[:-6].partition(".")
@@ -84,7 +85,7 @@ if outputFormat == 'json':
     arin['whois_records'] = {}
     arin['whois_records']['v4'] = v4records
     arin['whois_records']['v6'] = v6records
-    arin['json_schema'] = '0.0.3'
+    arin['json_schema'] = json_version
     arin['source'] = 'ARIN-WHOIS'
     arin['help'] = 'http://teamarin.net/2016/07/07/origin-as-an-easier-way-to-validate-letters-of-authority/'
     print json.dumps(arin, sort_keys=True, indent=4)
