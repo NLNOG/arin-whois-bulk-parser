@@ -1,0 +1,12 @@
+These scripts run on the IRRd instance which is supposed 
+to load the ARIN WHOIS data.
+
+The irr_rpsl_check must be available (ships with IRRd v3)
+
+The Makeflie process is as following:
+
+    - Fetch JSON file from NLNOG
+    - Convert JSON file to IRR
+    - Use irr_rpsl_check to check the IRR candidate for syntax errors and canonicalize the formatting
+    - Move files into appropiate places
+    - Send a signal to IRRd to reload the database (signal-load.bash)
